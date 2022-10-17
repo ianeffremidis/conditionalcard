@@ -29,18 +29,83 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let space = " ";
+
+  let ifname = variables.name;
+  if (variables.name == null) {
+    ifname = "Enter Name";
+  }
+
+  let iflast = variables.lastname;
+  if (variables.lastname == null) {
+    iflast = "";
+  }
+
+  let ifrole = variables.role;
+  if (variables.role == null) {
+    ifrole = "Choose your Role";
+  }
+
+  let ifcity = variables.city;
+  if (variables.city == null) {
+    ifcity = "City";
+  }
+
+  let ifcountry = variables.country;
+  if (variables.country == null) {
+    ifcountry = "Country";
+  }
+
+  let iftwitter = variables.twitter;
+  if (variables.twitter == null) {
+    iftwitter = "";
+  } else {
+    iftwitter =
+      '<a href="${iftwitter}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>';
+  }
+
+  let ifgithub = variables.github;
+  if (variables.github == null) {
+    ifgithub = " ";
+  } else {
+    ifgithub =
+      '<a href="${iftwitter}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>';
+  }
+
+  let iflinkedin = variables.linkedin;
+  if (variables.linkedin == null) {
+    iflinkedin = "";
+  } else {
+    iflinkedin =
+      '<a href="${iflinkedin}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></i></a>';
+  }
+
+  let ifinsta = variables.instagram;
+  if (variables.instagram == null) {
+    ifinsta = "";
+  } else {
+    ifinsta =
+      '<a href="${ifinsta}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></i></a>';
+  }
+
+  let side = variables.socialMediaPosition;
+  if (variables.socialMediaPosition == "right") {
+    side = "position-right";
+  } else {
+    side = "position-left";
+  }
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${ifname}${space}${iflast}</h1>
+          <h2>${ifrole}</h2>
+          <h3>${ifcity}, ${ifcountry}</h3>
+          <ul class="${side}">
+            <li>${iftwitter}</li>
+            <li>${ifgithub}</li>
+            <li>${iflinkedin}</li>
+            <li>${ifinsta}</li>
           </ul>
         </div>
     `;
@@ -61,7 +126,7 @@ window.onload = function() {
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
