@@ -60,36 +60,32 @@ function render(variables = {}) {
   if (variables.twitter == null) {
     iftwitter = "";
   } else {
-    iftwitter =
-      '<a href="${iftwitter}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>';
+    iftwitter = `<a href="${variables.twitter}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>`;
   }
 
   let ifgithub = variables.github;
   if (variables.github == null) {
-    ifgithub = " ";
+    ifgithub = "";
   } else {
-    ifgithub =
-      '<a href="${iftwitter}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>';
+    ifgithub = `<a href="${variables.github}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>`;
   }
 
   let iflinkedin = variables.linkedin;
   if (variables.linkedin == null) {
     iflinkedin = "";
   } else {
-    iflinkedin =
-      '<a href="${iflinkedin}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></i></a>';
+    iflinkedin = `<a href="${variables.linkedin}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></i></a>`;
   }
 
   let ifinsta = variables.instagram;
   if (variables.instagram == null) {
     ifinsta = "";
   } else {
-    ifinsta =
-      '<a href="${ifinsta}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></i></a>';
+    ifinsta = `<a href="${variables.instagram}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></i></a>`;
   }
 
   let side = variables.socialMediaPosition;
-  if (variables.socialMediaPosition == "right") {
+  if (variables.socialMediaPosition == "position-right") {
     side = "position-right";
   } else {
     side = "position-left";
@@ -123,7 +119,7 @@ window.onload = function() {
     // this is the url for the profile avatar
     avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
     // social media bar position (left or right)
-    socialMediaPosition: "position-left",
+    socialMediaPosition: "position-right",
     // social media usernames
     twitter: null,
     github: null,
